@@ -1,6 +1,7 @@
-import Head from 'next/head'
-import { styled } from '../stitches.config'
-import StitchesLogo from '../components/StitchesLogo'
+import Head from 'next/head';
+
+import StitchesLogo from '../components/StitchesLogo';
+import { styled } from '../stitches.config';
 
 const Box = styled('div', {})
 
@@ -42,10 +43,10 @@ export default function Home() {
       </Head>
       <Container size={{ initial: '1', bp1: '2' }}>
         <StitchesLogo />
-        <Text as="h1">Hello, from Stitches.</Text>
+        <Text as="h1">Teste de layout.</Text>
         <Text>
-          For full documentation, visit{' '}
-          <Link href="https://stitches.dev">stitches.dev</Link>.
+          Teste de Link{' '}
+          <Link href="https://stitches.dev">patricklima.dev</Link>.
         </Text>
       </Container>
     </Box>
