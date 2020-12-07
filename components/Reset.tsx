@@ -41,6 +41,11 @@ const reset = {
       'system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
   },
 
+  p: {
+    padding: 0,
+    margin: 0,
+  },
+
   /*
     Grouping content
     ================

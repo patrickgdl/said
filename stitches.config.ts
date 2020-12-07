@@ -29,6 +29,7 @@ const theme = {
     $4: '20px',
     $5: '25px',
     $6: '35px',
+    $7: '40px',
   },
   sizes: {
     $1: '5px',
@@ -37,6 +38,7 @@ const theme = {
     $4: '20px',
     $5: '25px',
     $6: '35px',
+    $7: '40px',
   },
   fontSizes: {
     $1: '12px',
