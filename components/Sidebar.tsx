@@ -46,7 +46,7 @@ const Sidebar = () => (
         </SideLogo>
 
         <SideContent>
-          <DropToggle />
+          <DropToggle fullName="Juliana Said" username="juhh_juba" />
         </SideContent>
       </SideColumn>
     </SideNav>

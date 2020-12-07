@@ -76,31 +76,40 @@ const DropUserName = styled('p', {
   whiteSpace: 'nowrap',
 });
 
-const DropToggle = () => (
-  <DropdownArea>
-    <div>
-      <DropButton type="button" aria-haspopup="true" aria-expanded="true">
-        <DropInfo>
-          <DropAvatar
-            src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-            alt="Avatar"
-          />
+const DropToggle = (props: { fullName: string; username: string }) => {
+  const { fullName, username } = props;
 
-          <div style={{ flex: '1 1 0%', marginLeft: '12px' }}>
-            <DropUser>Juliana Said</DropUser>
-            <DropUserName>@juhh_juba</DropUserName>
-          </div>
-        </DropInfo>
-        <svg width="20px" height="20px" viewBox="0 0 20 20" fill="currentColor">
-          <path
-            fillRule="evenodd"
-            d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
-            clipRule="evenodd"
-          />
-        </svg>
-      </DropButton>
-    </div>
-  </DropdownArea>
-);
+  return (
+    <DropdownArea>
+      <div>
+        <DropButton type="button" aria-haspopup="true" aria-expanded="true">
+          <DropInfo>
+            <DropAvatar
+              src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+              alt="Avatar"
+            />
+
+            <div style={{ flex: '1 1 0%', marginLeft: '12px' }}>
+              <DropUser>{fullName}</DropUser>
+              <DropUserName>{`@${username}`}</DropUserName>
+            </div>
+          </DropInfo>
+          <svg
+            width="20px"
+            height="20px"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </DropButton>
+      </div>
+    </DropdownArea>
+  );
+};
 
 export default DropToggle;
