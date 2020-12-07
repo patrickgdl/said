@@ -1,54 +1,26 @@
 import Head from 'next/head';
+import React from 'react';
+import { reset } from 'stitches-reset';
 
-import StitchesLogo from '../components/StitchesLogo';
-import { styled } from '../stitches.config';
+import Sidebar from '../components/Sidebar';
+import { css, styled } from '../stitches.config';
 
-const Box = styled('div', {})
+css.global(reset);
 
-const Text = styled('p', {
-  fontFamily: '$system',
-  color: '$hiContrast',
-})
-
-const Link = styled('a', {
-  fontFamily: '$system',
-  textDecoration: 'none',
-  color: '$purple600',
-})
-
-const Container = styled('div', {
-  marginX: 'auto',
-  paddingX: '$3',
-
-  variants: {
-    size: {
-      '1': {
-        maxWidth: '300px',
-      },
-      '2': {
-        maxWidth: '585px',
-      },
-      '3': {
-        maxWidth: '865px',
-      },
-    },
-  },
-})
+const Box = styled('div', {
+  height: '100vh',
+  overflow: 'hidden',
+  display: 'flex',
+  background: '$white',
+});
 
 export default function Home() {
   return (
-    <Box css={{ paddingY: '$6' }}>
+    <Box>
       <Head>
-        <title>Use Stitches with Next.js</title>
+        <title>Home - Said</title>
       </Head>
-      <Container size={{ initial: '1', bp1: '2' }}>
-        <StitchesLogo />
-        <Text as="h1">Teste de layout.</Text>
-        <Text>
-          Teste de Link{' '}
-          <Link href="https://stitches.dev">patricklima.dev</Link>.
-        </Text>
-      </Container>
+      <Sidebar />
     </Box>
-  )
+  );
 }

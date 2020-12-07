@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import NextDocument, { DocumentContext } from 'next/document';
 import React from 'react';
 
@@ -7,32 +8,27 @@ export default class Document extends NextDocument {
   static async getInitialProps(ctx: DocumentContext) {
     const originalRenderPage = ctx.renderPage;
 
-    try {
-      let extractedStyles;
-      ctx.renderPage = () => {
-        const { styles, result } = css.getStyles(originalRenderPage);
-        extractedStyles = styles;
-        return result;
-      };
+    let extractedStyles;
+    ctx.renderPage = () => {
+      const { styles, result } = css.getStyles(originalRenderPage);
+      extractedStyles = styles;
+      return result;
+    };
 
-      const initialProps = await NextDocument.getInitialProps(ctx);
+    const initialProps = await NextDocument.getInitialProps(ctx);
 
-      return {
-        ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
+    return {
+      ...initialProps,
+      styles: (
+        <>
+          {initialProps.styles}
 
-            {extractedStyles.map((content, index) => (
-              <style
-                key={index}
-                dangerouslySetInnerHTML={{ __html: content }}
-              />
-            ))}
-          </>
-        ),
-      };
-    } finally {
-    }
+          {extractedStyles.map((content, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <style key={index} dangerouslySetInnerHTML={{ __html: content }} />
+          ))}
+        </>
+      ),
+    };
   }
 }

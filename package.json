@@ -10,7 +10,8 @@
     "@stitches/react": "0.0.1",
     "next": "latest",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "stitches-reset": "^1.0.0"
   },
   "devDependencies": {
     "@types/react": "^16.9.43",

@@ -1,9 +1,10 @@
-import { createStyled } from '@stitches/react'
+/* eslint-disable no-unused-vars */
+import { createStyled } from '@stitches/react';
 
 const theme = {
   colors: {
-    $hiContrast: 'hsl(206,10%,5%)',
-    $loContrast: 'white',
+    $black: 'hsl(206,10%,5%)',
+    $white: 'white',
 
     $gray100: 'hsl(206,22%,99%)',
     $gray200: 'hsl(206,12%,97%)',
@@ -46,7 +47,7 @@ const theme = {
   fonts: {
     $system: 'system-ui',
   },
-}
+};
 
 export const { styled, css } = createStyled({
   tokens: theme,
@@ -80,4 +81,4 @@ export const { styled, css } = createStyled({
     bp1: (rule) => `@media (min-width: 520px) { ${rule} }`,
     bp2: (rule) => `@media (min-width: 900px) { ${rule} }`,
   },
-})
+});
