@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { createStyled } from '@stitches/react';
 
 const theme = {
@@ -6,12 +5,15 @@ const theme = {
     $black: 'hsl(206,10%,5%)',
     $white: 'white',
 
-    $gray100: 'hsl(206,22%,99%)',
-    $gray200: 'hsl(206,12%,97%)',
-    $gray300: 'hsl(206,11%,92%)',
-    $gray400: 'hsl(206,10%,84%)',
-    $gray500: 'hsl(206,10%,76%)',
-    $gray600: 'hsl(206,10%,44%)',
+    $gray100: '#F3F4F6',
+    $gray200: '#E5E7EB',
+    $gray300: '#D1D5DB',
+    $gray400: '#9CA3AF',
+    $gray500: '#6B7280',
+    $gray600: '#4B5563',
+    $gray700: '#374151',
+    $gray800: '#1F2937',
+    $gray900: '#111827',
 
     $purple100: 'hsl(252,100%,99%)',
     $purple200: 'hsl(252,100%,98%)',
@@ -44,6 +46,13 @@ const theme = {
     $5: '19px',
     $6: '21px',
   },
+  fontWeights: {
+    $light: '300',
+    $regular: '400',
+    $medium: '500',
+    $semibold: '600',
+    $bold: '700',
+  },
   fonts: {
     $system: 'system-ui',
   },
@@ -52,30 +61,27 @@ const theme = {
 export const { styled, css } = createStyled({
   tokens: theme,
   utils: {
-    marginX: (config) => (
-      value: keyof typeof theme['space'] | (string & {})
-    ) => ({
+    marginX: () => (value: keyof typeof theme['space'] | (string & {})) => ({
       marginLeft: value,
       marginRight: value,
     }),
-    marginY: (config) => (
-      value: keyof typeof theme['space'] | (string & {})
-    ) => ({
+    marginY: () => (value: keyof typeof theme['space'] | (string & {})) => ({
       marginTop: value,
       marginBottom: value,
     }),
-    paddingX: (config) => (
-      value: keyof typeof theme['space'] | (string & {})
-    ) => ({
+    paddingX: () => (value: keyof typeof theme['space'] | (string & {})) => ({
       paddingLeft: value,
       paddingRight: value,
     }),
-    paddingY: (config) => (
-      value: keyof typeof theme['space'] | (string & {})
-    ) => ({
+    paddingY: () => (value: keyof typeof theme['space'] | (string & {})) => ({
       paddingTop: value,
       paddingBottom: value,
     }),
+    // fontScale: () => (
+    //   value: keyof typeof theme['fontWeights'] | (string & {})
+    // ) => ({
+    //   fontWeight: value,
+    // }),
   },
   breakpoints: {
     bp1: (rule) => `@media (min-width: 520px) { ${rule} }`,

@@ -1,10 +1,11 @@
 import Head from 'next/head';
 import React from 'react';
-import { reset } from 'stitches-reset';
+import reset from '../components/Reset';
 
 import Sidebar from '../components/Sidebar';
 import { css, styled } from '../stitches.config';
 
+// @ts-ignore
 css.global(reset);
 
 const Box = styled('div', {
