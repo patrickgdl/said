@@ -5,6 +5,7 @@ const theme = {
     $black: 'hsl(206,10%,5%)',
     $white: 'white',
 
+    $gray50: '#F9FAFB',
     $gray100: '#F3F4F6',
     $gray200: '#E5E7EB',
     $gray300: '#D1D5DB',
@@ -56,7 +57,8 @@ const theme = {
     $bold: '700',
   },
   fonts: {
-    $system: 'system-ui',
+    $system:
+      'Roboto, ui-sans-serif, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
   },
 };
 

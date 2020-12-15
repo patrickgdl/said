@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import React from 'react';
 import reset from '../components/Reset';
 
@@ -18,9 +17,6 @@ const Box = styled('div', {
 export default function Home() {
   return (
     <Box>
-      <Head>
-        <title>Home - Said</title>
-      </Head>
       <Sidebar />
     </Box>
   );

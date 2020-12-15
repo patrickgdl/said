@@ -18,11 +18,20 @@ const reset = {
   },
 
   /**
+   * Remove anchor underline decoration
+   */
+
+  a: {
+    textDecoration: 'none',
+  },
+
+  /**
     Correct the line height in all browsers.
     */
 
   html: {
     lineHeight: 1.15,
+    fontSize: '15px',
   },
 
   /*
@@ -38,11 +47,14 @@ const reset = {
   body: {
     margin: 0,
     fontFamily:
-      'system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
+      'Roboto, ui-sans-serif, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
   },
 
   p: {
     padding: 0,
+  },
+
+  'blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre': {
     margin: 0,
   },
 

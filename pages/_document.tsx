@@ -1,5 +1,11 @@
 /* eslint-disable react/no-danger */
-import NextDocument, { DocumentContext } from 'next/document';
+import NextDocument, {
+  DocumentContext,
+  Html,
+  Main,
+  NextScript,
+} from 'next/document';
+import Head from 'next/head';
 import React from 'react';
 
 import { css } from '../stitches.config';
@@ -30,5 +36,23 @@ export default class Document extends NextDocument {
         </>
       ),
     };
+  }
+
+  render() {
+    return (
+      <Html lang="pt-br">
+        <Head>
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
 }

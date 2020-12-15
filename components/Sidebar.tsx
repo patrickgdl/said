@@ -1,14 +1,13 @@
 import React from 'react';
 
 import { styled } from '../stitches.config';
-import Logo from './Logo';
 import DropToggle from './DropToggle';
+import Logo from './Logo';
 
 const SideNav = styled('nav', {
   overflow: 'hidden',
   display: 'flex',
   flexShrink: 0,
-  background: '$white',
 });
 
 const SideColumn = styled('div', {
@@ -19,14 +18,20 @@ const SideColumn = styled('div', {
   borderColor: '$gray200',
   borderStyle: 'solid',
   background: '$gray100',
-  width: '20vw',
+  width: '15.5rem',
 });
 
 const SideLogo = styled('div', {
   display: 'flex',
-  flexShrink: 0,
-  alignItems: 'center',
-  paddingX: '$2',
+  justifyContent: 'center',
+
+  svg: {
+    cursor: 'pointer',
+    color: '$gray500',
+    ':hover': {
+      color: '$gray600',
+    },
+  },
 });
 
 const SideContent = styled('div', {
