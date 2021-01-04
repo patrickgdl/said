@@ -1,6 +1,7 @@
+import Head from 'next/head';
 import React from 'react';
-import reset from '../components/Reset';
 
+import reset from '../components/Reset';
 import Sidebar from '../components/Sidebar/Sidebar';
 import { css, styled } from '../stitches.config';
 
@@ -16,8 +17,13 @@ const Box = styled('div', {
 
 export default function Home() {
   return (
-    <Box>
-      <Sidebar />
-    </Box>
+    <>
+      <Head>
+        <title>Home</title>
+      </Head>
+      <Box>
+        <Sidebar />
+      </Box>
+    </>
   );
 }

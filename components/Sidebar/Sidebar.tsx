@@ -2,6 +2,7 @@ import React from 'react';
 
 import { styled } from '../../stitches.config';
 import Logo from '../Logo';
+import NavigationSidebar from '../Navigation/Navigation.Sidebar';
 import UserDropdown from '../User.Dropdown/User.Dropdown';
 import SidebarSearch from './Sidebar.Search';
 
@@ -55,6 +56,8 @@ const Sidebar = () => (
           <UserDropdown fullName="Juliana Said" username="juhh_juba" />
 
           <SidebarSearch />
+
+          <NavigationSidebar />
         </SideContent>
       </SideColumn>
     </SideNav>

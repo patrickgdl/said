@@ -143,7 +143,7 @@ const UserDropdown = (props: { fullName: string; username: string }) => {
           </svg>
         </DropInfoWrap>
       </DropButton>
-      <AnimatePresence initial={false}>
+      <AnimatePresence>
         {open && (
           <DropdownMenuArea
             initial={{ height: 0, opacity: 0 }}
