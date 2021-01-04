@@ -4,8 +4,8 @@ import NextDocument, {
   Html,
   Main,
   NextScript,
+  Head,
 } from 'next/document';
-import Head from 'next/head';
 import React from 'react';
 
 import { css } from '../stitches.config';

@@ -1,4 +1,6 @@
+import Link from 'next/link';
 import React from 'react';
+
 import { styled } from '../stitches.config';
 
 const DropDownArea = styled('div', {
@@ -17,9 +19,6 @@ const DropDownArea = styled('div', {
 const DropDownMenu = styled('div', {
   backgroundColor: '$white',
   borderRadius: '0.375rem',
-});
-
-const DropDownWrap = styled('div', {
   paddingY: '$1',
 });
 
@@ -30,6 +29,7 @@ const DropDownLink = styled('a', {
   color: '$gray700',
   lineHeight: '1.25rem',
   fontSize: '0.875rem',
+  cursor: 'pointer',
 
   ':hover': {
     backgroundColor: '$gray100',
@@ -48,30 +48,20 @@ const DropDownBorder = styled('div', {
   borderColor: '$gray100',
 });
 
-const DropPanel = () => {
-  const menuItems: { id: number; name: string; hasBorderAfter?: boolean }[] = [
-    { id: 1, name: 'View Profile' },
-    { id: 2, name: 'Settings' },
-    { id: 3, name: 'Notifications', hasBorderAfter: true },
-    { id: 4, name: 'Get desktop app' },
-    { id: 5, name: 'Support', hasBorderAfter: true },
-    { id: 6, name: 'Logout' },
+const DropMenu = () => {
+  const menuItems: {
+    id: number;
+    name: string;
+    hasBorderAfter?: boolean;
+    url: string;
+  }[] = [
+    { id: 1, name: 'View Profile', url: '/about' },
+    { id: 2, name: 'Settings', url: '' },
+    { id: 3, name: 'Notifications', hasBorderAfter: true, url: '' },
+    { id: 4, name: 'Get desktop app', url: '' },
+    { id: 5, name: 'Support', hasBorderAfter: true, url: '' },
+    { id: 6, name: 'Logout', url: '' },
   ];
-
-  const menuLinks = menuItems.map((value) =>
-    value.hasBorderAfter ? (
-      <>
-        <DropDownLink href="#" role="menuitem">
-          {value.name}
-        </DropDownLink>
-        <DropDownBorder />
-      </>
-    ) : (
-      <DropDownLink href="#" role="menuitem">
-        {value.name}
-      </DropDownLink>
-    )
-  );
 
   return (
     <DropDownArea>
@@ -80,10 +70,17 @@ const DropPanel = () => {
         aria-orientation="vertical"
         aria-labelledby="options-menu"
       >
-        <DropDownWrap>{menuLinks}</DropDownWrap>
+        {menuItems.map((value) => (
+          <React.Fragment key={value.id}>
+            <Link href={value.url}>
+              <DropDownLink role="menuitem">{value.name}</DropDownLink>
+            </Link>
+            {value.hasBorderAfter && <DropDownBorder />}
+          </React.Fragment>
+        ))}
       </DropDownMenu>
     </DropDownArea>
   );
 };
 
-export default DropPanel;
+export default DropMenu;
