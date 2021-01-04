@@ -1,7 +1,7 @@
 import React from 'react';
 import reset from '../components/Reset';
 
-import Sidebar from '../components/Sidebar';
+import Sidebar from '../components/Sidebar/Sidebar';
 import { css, styled } from '../stitches.config';
 
 // @ts-ignore

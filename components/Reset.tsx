@@ -30,8 +30,8 @@ const reset = {
     */
 
   html: {
-    lineHeight: 1.15,
-    fontSize: '15px',
+    lineHeight: '1.5',
+    fontSize: '16px',
   },
 
   /*
@@ -47,7 +47,7 @@ const reset = {
   body: {
     margin: 0,
     fontFamily:
-      'Roboto, ui-sans-serif, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
+      'Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
   },
 
   p: {

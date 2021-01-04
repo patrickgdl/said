@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 
-import { styled } from '../stitches.config';
+import { styled } from '../../stitches.config';
 
 const DropDownArea = styled('div', {
   position: 'absolute',
@@ -28,7 +28,7 @@ const DropDownLink = styled('a', {
   paddingY: '$2',
   color: '$gray700',
   lineHeight: '1.25rem',
-  fontSize: '0.875rem',
+  fontSize: '$textSm',
   cursor: 'pointer',
 
   ':hover': {
@@ -48,7 +48,7 @@ const DropDownBorder = styled('div', {
   borderColor: '$gray100',
 });
 
-const DropMenu = () => {
+const UserDropdownMenu = () => {
   const menuItems: {
     id: number;
     name: string;
@@ -64,23 +64,21 @@ const DropMenu = () => {
   ];
 
   return (
-    <DropDownArea>
-      <DropDownMenu
-        role="menu"
-        aria-orientation="vertical"
-        aria-labelledby="options-menu"
-      >
-        {menuItems.map((value) => (
-          <React.Fragment key={value.id}>
-            <Link href={value.url}>
-              <DropDownLink role="menuitem">{value.name}</DropDownLink>
-            </Link>
-            {value.hasBorderAfter && <DropDownBorder />}
-          </React.Fragment>
-        ))}
-      </DropDownMenu>
-    </DropDownArea>
+    <DropDownMenu
+      role="menu"
+      aria-orientation="vertical"
+      aria-labelledby="options-menu"
+    >
+      {menuItems.map((value) => (
+        <React.Fragment key={value.id}>
+          <Link href={value.url}>
+            <DropDownLink role="menuitem">{value.name}</DropDownLink>
+          </Link>
+          {value.hasBorderAfter && <DropDownBorder />}
+        </React.Fragment>
+      ))}
+    </DropDownMenu>
   );
 };
 
-export default DropMenu;
+export default UserDropdownMenu;

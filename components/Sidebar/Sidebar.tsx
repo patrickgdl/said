@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { styled } from '../stitches.config';
-import DropToggle from './DropToggle';
-import Logo from './Logo';
+import { styled } from '../../stitches.config';
+import Logo from '../Logo';
+import UserDropdown from '../User.Dropdown/User.Dropdown';
+import SidebarSearch from './Sidebar.Search';
 
 const SideNav = styled('nav', {
   overflow: 'hidden',
@@ -51,7 +52,9 @@ const Sidebar = () => (
         </SideLogo>
 
         <SideContent>
-          <DropToggle fullName="Juliana Said" username="juhh_juba" />
+          <UserDropdown fullName="Juliana Said" username="juhh_juba" />
+
+          <SidebarSearch />
         </SideContent>
       </SideColumn>
     </SideNav>

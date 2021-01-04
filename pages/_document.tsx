@@ -14,7 +14,7 @@ export default class Document extends NextDocument {
   static async getInitialProps(ctx: DocumentContext) {
     const originalRenderPage = ctx.renderPage;
 
-    let extractedStyles;
+    let extractedStyles: string[] = [];
     ctx.renderPage = () => {
       const { styles, result } = css.getStyles(originalRenderPage);
       extractedStyles = styles;
@@ -44,7 +44,7 @@ export default class Document extends NextDocument {
         <Head>
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
             rel="stylesheet"
           />
         </Head>

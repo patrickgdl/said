@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
-import { styled } from '../stitches.config';
-import DropMenu from './DropMenu';
-import Box from './Box';
+import { styled } from '../../stitches.config';
+import UserDropdownMenu from './User.Dropdown.Menu';
+import Box from '../Box';
 
 const DropdownArea = styled('div', {
   position: 'relative',
@@ -19,7 +19,7 @@ const DropButton = styled('button', {
   paddingX: '$3',
   paddingY: '$2',
   fontWeight: 400,
-  fontSize: '0.875rem',
+  fontSize: '$textSm',
   lineHeight: '1.25rem',
   color: '$gray700',
   backgroundColor: '$gray100',
@@ -77,14 +77,14 @@ const DropAvatar = styled('img', {
 
 const DropUser = styled('h2', {
   color: '$gray900',
-  fontSize: '0.875rem',
+  fontSize: '$textSm',
   lineHeight: '1.25rem',
   fontWeight: 500,
 });
 
 const DropUserName = styled('p', {
   color: '$gray500',
-  fontSize: '0.875rem',
+  fontSize: '$textSm',
   lineHeight: '1.25rem',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
@@ -92,7 +92,20 @@ const DropUserName = styled('p', {
   fontWeight: 500,
 });
 
-const DropToggle = (props: { fullName: string; username: string }) => {
+const DropdownMenuArea = styled(motion.div, {
+  position: 'absolute',
+  right: 0,
+  left: 0,
+  zIndex: 10,
+  boxShadow:
+    ' 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+  transformOrigin: 'top',
+  marginTop: '$1',
+  marginX: '$2',
+  borderRadius: '0.375rem',
+});
+
+const UserDropdown = (props: { fullName: string; username: string }) => {
   const [open, setOpen] = useState(false);
   const { fullName, username } = props;
 
@@ -130,18 +143,20 @@ const DropToggle = (props: { fullName: string; username: string }) => {
           </svg>
         </DropInfoWrap>
       </DropButton>
-
-      {open && (
-        <motion.div
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ height: 'auto', opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <DropMenu />
-        </motion.div>
-      )}
+      <AnimatePresence initial={false}>
+        {open && (
+          <DropdownMenuArea
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            exit={{ height: 0, opacity: 0 }}
+          >
+            <UserDropdownMenu />
+          </DropdownMenuArea>
+        )}
+      </AnimatePresence>
     </DropdownArea>
   );
 };
 
-export default DropToggle;
+export default UserDropdown;
