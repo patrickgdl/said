@@ -1,103 +1,15 @@
-import Link from 'next/link';
-import Image from 'next/image';
 import React from 'react';
-import { styled } from '../../stitches.config';
+import { css } from '../../stitches.config';
+
+import { NavItem } from '../../types/nav-item.interface';
 import Box from '../Utils/Box';
+import Heading from '../Utils/Heading';
 import SpaceY from '../Utils/SpaceY';
-
-const SecondaryNavigation = styled('div', {
-  marginTop: '$8',
-});
-
-const NavigationItem = styled('a', {
-  display: 'flex',
-  alignItems: 'center',
-  paddingX: '$2',
-  paddingY: '$2',
-  fontSize: '$textSm',
-  lineHeight: '1.25rem',
-  fontWeight: 500,
-  borderRadius: '0.375rem',
-  color: '$gray900',
-  backgroundColor: '$gray200',
-  transitionProperty:
-    'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform',
-  transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
-  transitionDuration: '150ms',
-
-  ':focus': {
-    outline: '2px solid transparent',
-    backgroundColor: '$gray50',
-  },
-
-  img: {
-    marginRight: '$3',
-    height: '1.5rem',
-    width: '1.5rem',
-    // hacky filter acting as color for img svg
-    filter:
-      'invert(44%) sepia(8%) saturate(603%) hue-rotate(182deg) brightness(99%) contrast(93%)',
-    ':hover': {
-      filter:
-        'invert(34%) sepia(12%) saturate(621%) hue-rotate(176deg) brightness(92%) contrast(93%)',
-    },
-    ':focus': {
-      filter:
-        'invert(34%) sepia(12%) saturate(621%) hue-rotate(176deg) brightness(92%) contrast(93%)',
-    },
-    transition: 'background-color cubic-bezier(0.4, 0, 0.2, 1) 150ms',
-  },
-});
-
-const HeadingTitle = styled('h3', {
-  paddingX: '$3',
-  fontSize: '$textXs',
-  lineHeight: '1rem',
-  fontWeight: 600,
-  color: '$gray500',
-  textTransform: 'uppercase',
-  letterSpacing: '0.05em',
-});
-
-const SecondaryLink = styled('a', {
-  display: 'flex',
-  alignItems: 'center',
-  paddingX: '$2',
-  paddingY: '$2',
-  fontSize: '$textSm',
-  lineHeight: '1.25rem',
-  fontWeight: 500,
-  color: '$gray700',
-  borderRadius: '0.375rem',
-  transition: 'background-color cubic-bezier(0.4, 0, 0.2, 1) 150ms',
-
-  ':hover': {
-    color: '$gray900',
-    backgroundColor: '$gray50',
-  },
-
-  ':focus': {
-    outline: '2px solid transparent',
-    backgroundColor: '$gray50',
-  },
-});
-
-const SecondaryLinkStatus = styled('span', {
-  width: '0.625rem',
-  height: '0.625rem',
-  marginRight: '$4',
-  backgroundColor: '$indigo500',
-  borderRadius: '9999px',
-});
-
-const SecondaryLinkText = styled('span', {
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
-  whiteSpace: 'nowrap',
-});
+import NavigationItem from './Navigation.Item';
+import NavigationSecondary from './Navigation.Secondary';
 
 const NavigationSidebar = () => {
-  const sidebarItems = [
+  const sidebarItems: NavItem[] = [
     {
       id: 1,
       name: 'Home',
@@ -128,41 +40,36 @@ const NavigationSidebar = () => {
     <Box as="nav" css={{ paddingX: '$3', marginTop: '$6' }}>
       <SpaceY size={1}>
         {sidebarItems.map((value) =>
-          value.isPrimary ? (
-            <Link href={value.url} key={value.id}>
-              <NavigationItem>
-                {value.icon && (
-                  <Image
-                    src={value.icon}
-                    alt={value.name}
-                    width="18"
-                    height="18"
-                  />
-                )}
-                {value.name}
-              </NavigationItem>
-            </Link>
-          ) : null
+          value.isPrimary ? <NavigationItem navItem={value} /> : null
         )}
       </SpaceY>
 
-      <SecondaryNavigation>
-        <HeadingTitle id="teams-headline">Teams</HeadingTitle>
+      <Box css={{ marginTop: '$8' }}>
+        <Heading
+          as="h3"
+          transform="uppercase"
+          id="teams-headline"
+          css={HeadingTitle}
+        >
+          Times
+        </Heading>
         <SpaceY size={1}>
           {sidebarItems.map((value) =>
-            !value.isPrimary ? (
-              <Link href={value.url} key={value.id}>
-                <SecondaryLink>
-                  <SecondaryLinkStatus />
-                  <SecondaryLinkText>{value.name}</SecondaryLinkText>
-                </SecondaryLink>
-              </Link>
-            ) : null
+            !value.isPrimary ? <NavigationSecondary navItem={value} /> : null
           )}
         </SpaceY>
-      </SecondaryNavigation>
+      </Box>
     </Box>
   );
 };
+
+const HeadingTitle = css({
+  paddingX: '$3',
+  fontSize: '$textXs',
+  lineHeight: '1rem',
+  fontWeight: 600,
+  color: '$gray500',
+  letterSpacing: '0.05em',
+});
 
 export default NavigationSidebar;

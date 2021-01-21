@@ -1,10 +1,30 @@
 import React from 'react';
 
 import { styled } from '../../stitches.config';
-import Logo from '../Logo';
+import Logo from '../Utils/Logo';
 import NavigationSidebar from '../Navigation/Navigation.Sidebar';
 import UserDropdown from '../User.Dropdown/User.Dropdown';
 import SidebarSearch from './Sidebar.Search';
+
+const Sidebar = () => (
+  <>
+    <SideNav>
+      <SideColumn>
+        <SideLogo>
+          <Logo />
+        </SideLogo>
+
+        <SideContent>
+          <UserDropdown fullName="Juliana Said" username="juhh_juba" />
+
+          <SidebarSearch />
+
+          <NavigationSidebar />
+        </SideContent>
+      </SideColumn>
+    </SideNav>
+  </>
+);
 
 const SideNav = styled('nav', {
   overflow: 'hidden',
@@ -43,25 +63,5 @@ const SideContent = styled('div', {
   overflowY: 'auto',
   height: 0,
 });
-
-const Sidebar = () => (
-  <>
-    <SideNav>
-      <SideColumn>
-        <SideLogo>
-          <Logo />
-        </SideLogo>
-
-        <SideContent>
-          <UserDropdown fullName="Juliana Said" username="juhh_juba" />
-
-          <SidebarSearch />
-
-          <NavigationSidebar />
-        </SideContent>
-      </SideColumn>
-    </SideNav>
-  </>
-);
 
 export default Sidebar;
