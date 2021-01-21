@@ -2,14 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
 import { styled } from '../../stitches.config';
-import Box from '../Box';
-
-const PrimaryNavigation = styled('div', {
-  '& > :not([hidden]) ~ :not([hidden])': {
-    marginTop: 'calc(0.25rem * calc(1 - 0))',
-    marginBottom: 'calc(0.25rem * 0))',
-  },
-});
+import Box from '../Utils/Box';
+import SpaceY from '../Utils/SpaceY';
 
 const SecondaryNavigation = styled('div', {
   marginTop: '$8',
@@ -36,15 +30,20 @@ const NavigationItem = styled('a', {
     backgroundColor: '$gray50',
   },
 
-  svg: {
+  img: {
     marginRight: '$3',
     height: '1.5rem',
     width: '1.5rem',
+    // hacky filter acting as color for img svg
+    filter:
+      'invert(44%) sepia(8%) saturate(603%) hue-rotate(182deg) brightness(99%) contrast(93%)',
     ':hover': {
-      color: '$gray500',
+      filter:
+        'invert(34%) sepia(12%) saturate(621%) hue-rotate(176deg) brightness(92%) contrast(93%)',
     },
     ':focus': {
-      color: '$gray500',
+      filter:
+        'invert(34%) sepia(12%) saturate(621%) hue-rotate(176deg) brightness(92%) contrast(93%)',
     },
     transition: 'background-color cubic-bezier(0.4, 0, 0.2, 1) 150ms',
   },
@@ -58,14 +57,6 @@ const HeadingTitle = styled('h3', {
   color: '$gray500',
   textTransform: 'uppercase',
   letterSpacing: '0.05em',
-});
-
-const SecondaryBox = styled(Box, {
-  marginTop: '$1',
-  '& > :not([hidden]) ~ :not([hidden])': {
-    marginTop: 'calc(0.25rem * calc(1 - 0))',
-    marginBottom: 'calc(0.25rem * 0))',
-  },
 });
 
 const SecondaryLink = styled('a', {
@@ -135,7 +126,7 @@ const NavigationSidebar = () => {
 
   return (
     <Box as="nav" css={{ paddingX: '$3', marginTop: '$6' }}>
-      <PrimaryNavigation>
+      <SpaceY size={1}>
         {sidebarItems.map((value) =>
           value.isPrimary ? (
             <Link href={value.url} key={value.id}>
@@ -153,11 +144,11 @@ const NavigationSidebar = () => {
             </Link>
           ) : null
         )}
-      </PrimaryNavigation>
+      </SpaceY>
 
       <SecondaryNavigation>
         <HeadingTitle id="teams-headline">Teams</HeadingTitle>
-        <SecondaryBox>
+        <SpaceY size={1}>
           {sidebarItems.map((value) =>
             !value.isPrimary ? (
               <Link href={value.url} key={value.id}>
@@ -168,7 +159,7 @@ const NavigationSidebar = () => {
               </Link>
             ) : null
           )}
-        </SecondaryBox>
+        </SpaceY>
       </SecondaryNavigation>
     </Box>
   );

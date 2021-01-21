@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { styled } from '../../stitches.config';
-import Box from '../Box';
-import Flex from '../Flex';
-import Input from '../Input';
-import SrOnly from '../SrOnly';
+import Box from '../Utils/Box';
+import Flex from '../Utils/Flex';
+import Input from '../Utils/Input';
+import SrOnly from '../Utils/SrOnly';
 
 const SearchBox = styled(Box, {
   position: 'relative',

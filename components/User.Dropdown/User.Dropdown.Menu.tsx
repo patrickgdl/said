@@ -3,19 +3,6 @@ import React from 'react';
 
 import { styled } from '../../stitches.config';
 
-const DropDownArea = styled('div', {
-  position: 'absolute',
-  right: 0,
-  left: 0,
-  zIndex: 10,
-  boxShadow:
-    ' 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-  transformOrigin: 'top',
-  marginTop: '$1',
-  marginX: '$2',
-  borderRadius: '0.375rem',
-});
-
 const DropDownMenu = styled('div', {
   backgroundColor: '$white',
   borderRadius: '0.375rem',

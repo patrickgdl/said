@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import { styled } from '../../stitches.config';
 import UserDropdownMenu from './User.Dropdown.Menu';
-import Box from '../Box';
+import Box from '../Utils/Box';
 
 const DropdownArea = styled('div', {
   position: 'relative',

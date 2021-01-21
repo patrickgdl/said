@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
 
-import reset from '../components/Reset';
+import reset from '../components/Utils/Reset';
 import Sidebar from '../components/Sidebar/Sidebar';
 import { css, styled } from '../stitches.config';
 
