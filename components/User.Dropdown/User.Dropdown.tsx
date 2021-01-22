@@ -48,7 +48,7 @@ const DropdownArea = styled('div', {
 const DropButton = styled('button', {
   width: '100%',
   borderRadius: '6px',
-  paddingX: '$3',
+  paddingX: '$3-5',
   paddingY: '$2',
   fontWeight: 400,
   fontSize: '$textSm',

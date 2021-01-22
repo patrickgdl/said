@@ -14,7 +14,7 @@ const NavigationSidebar = () => {
       id: 1,
       name: 'Home',
       isPrimary: true,
-      url: '/about',
+      url: '/',
       icon: '/home.svg',
     },
     {
@@ -37,39 +37,45 @@ const NavigationSidebar = () => {
   ];
 
   return (
-    <Box as="nav" css={{ paddingX: '$3', marginTop: '$6' }}>
+    <Box as="nav" css={navigation}>
       <SpaceY size={1}>
         {sidebarItems.map((value) =>
-          value.isPrimary ? <NavigationItem navItem={value} /> : null
+          value.isPrimary ? (
+            <NavigationItem key={value.id} navItem={value} />
+          ) : null
         )}
       </SpaceY>
 
-      <Box css={{ marginTop: '$8' }}>
+      <Box css={secondNavigation}>
         <Heading
           as="h3"
           transform="uppercase"
           id="teams-headline"
-          css={HeadingTitle}
+          css={headingTitle}
         >
           Times
         </Heading>
-        <SpaceY size={1}>
+        <SpaceY size={1} role="group" aria-labelledby="headline">
           {sidebarItems.map((value) =>
-            !value.isPrimary ? <NavigationSecondary navItem={value} /> : null
+            !value.isPrimary ? (
+              <NavigationSecondary key={value.id} navItem={value} />
+            ) : null
           )}
         </SpaceY>
       </Box>
     </Box>
   );
 };
+const navigation = css({ paddingX: '$3', marginTop: '$6' });
 
-const HeadingTitle = css({
+const secondNavigation = css({ marginTop: '$8' });
+
+const headingTitle = css({
   paddingX: '$3',
   fontSize: '$textXs',
   lineHeight: '1rem',
-  fontWeight: 600,
   color: '$gray500',
-  letterSpacing: '0.05em',
+  letterSpacing: '0.1em',
 });
 
 export default NavigationSidebar;

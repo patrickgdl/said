@@ -1,24 +1,25 @@
 import React from 'react';
 
 import Box from '../Utils/Box';
-import { styled } from '../../stitches.config';
+import SpaceX from '../Utils/SpaceX';
+import { styled, css } from '../../stitches.config';
 
 const UserDropdownInfo: React.FC<{ fullName: string; username: string }> = ({
   fullName,
   username,
 }) => (
   <DropInfoWrap>
-    <DropInfo>
+    <SpaceX size={3} css={dropInfo}>
       <DropAvatar
         src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
         alt="Avatar"
       />
 
-      <Box css={{ flex: '1 1 0%', marginLeft: '12px' }}>
+      <Box css={userWrapper}>
         <DropUser>{fullName}</DropUser>
         <DropUserName>{`@${username}`}</DropUserName>
       </Box>
-    </DropInfo>
+    </SpaceX>
     <svg width="18px" height="18px" viewBox="0 0 20 20" fill="currentColor">
       <path
         fillRule="evenodd"
@@ -36,7 +37,7 @@ const DropInfoWrap = styled('div', {
   width: '100%',
 });
 
-const DropInfo = styled('div', {
+const dropInfo = css({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -50,11 +51,12 @@ const DropAvatar = styled('img', {
   flexShrink: 0,
 });
 
+const userWrapper = css({ flex: 'auto' });
+
 const DropUser = styled('h2', {
   color: '$gray900',
   fontSize: '$textSm',
   lineHeight: '1.25rem',
-  fontWeight: 500,
 });
 
 const DropUserName = styled('p', {

@@ -1,20 +1,25 @@
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 import { styled } from '../../stitches.config';
 import { NavItem } from '../../types/nav-item.interface';
 
-const NavigationItem: React.FC<{ navItem: NavItem }> = ({ navItem }) => (
-  <Link href={navItem.url} key={navItem.id}>
-    <Item>
-      {navItem.icon && (
-        <Image src={navItem.icon} alt={navItem.name} width="18" height="18" />
-      )}
-      {navItem.name}
-    </Item>
-  </Link>
-);
+const NavigationItem: React.FC<{ navItem: NavItem }> = ({ navItem }) => {
+  const router = useRouter();
+
+  return (
+    <Link href={navItem.url} key={navItem.id}>
+      <Item className={router.pathname === navItem.url ? 'active' : ''}>
+        {navItem.icon && (
+          <Image src={navItem.icon} alt={navItem.name} width="18" height="18" />
+        )}
+        {navItem.name}
+      </Item>
+    </Link>
+  );
+};
 
 const Item = styled('a', {
   display: 'flex',
@@ -25,16 +30,27 @@ const Item = styled('a', {
   lineHeight: '1.25rem',
   fontWeight: 500,
   borderRadius: '0.375rem',
-  color: '$gray900',
-  backgroundColor: '$gray200',
+  color: '$gray700',
   transitionProperty:
     'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform',
   transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
   transitionDuration: '150ms',
+  cursor: 'pointer',
+
+  ':hover:not(.active)': {
+    color: '$gray900',
+    backgroundColor: '$gray50',
+  },
 
   ':focus': {
     outline: '2px solid transparent',
     backgroundColor: '$gray50',
+  },
+
+  '&.active': {
+    backgroundColor: '$gray200',
+    color: '$gray900',
+    cursor: 'initial',
   },
 
   img: {

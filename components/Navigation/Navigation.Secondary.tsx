@@ -16,8 +16,9 @@ const NavigationSecondary: React.FC<{ navItem: NavItem }> = ({ navItem }) => (
 const LinkItem = styled('a', {
   display: 'flex',
   alignItems: 'center',
-  paddingX: '$2',
+  paddingX: '$3',
   paddingY: '$2',
+  marginTop: '$1',
   fontSize: '$textSm',
   lineHeight: '1.25rem',
   fontWeight: 500,
