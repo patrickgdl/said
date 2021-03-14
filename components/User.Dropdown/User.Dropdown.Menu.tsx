@@ -51,12 +51,12 @@ const DropDownLink = styled('a', {
   fontSize: '$textSm',
   cursor: 'pointer',
 
-  ':hover': {
+  '&:hover': {
     backgroundColor: '$gray100',
     color: '$gray900',
   },
 
-  ':focus': {
+  '&:focus': {
     outline: 'none',
     backgroundColor: '$gray100',
     color: '$gray900',

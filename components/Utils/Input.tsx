@@ -13,7 +13,7 @@ const Input = styled('input', {
   fontSize: '$textBase',
   lineHeight: '1.5rem',
 
-  ':focus': {
+  '&:focus': {
     outline: 'none',
     boxShadow: '0 0 0 #fff, 0 0 0 1px #2563eb, 0 0 #0000',
     borderColor: '#2563eb',

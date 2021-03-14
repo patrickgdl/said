@@ -26,12 +26,12 @@ const LinkItem = styled('a', {
   borderRadius: '0.375rem',
   transition: 'background-color cubic-bezier(0.4, 0, 0.2, 1) 150ms',
 
-  ':hover': {
+  '&:hover': {
     color: '$gray900',
     backgroundColor: '$gray50',
   },
 
-  ':focus': {
+  '&:focus': {
     outline: '2px solid transparent',
     backgroundColor: '$gray50',
   },

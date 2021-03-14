@@ -8,19 +8,10 @@ import NextDocument, {
 } from 'next/document';
 import React from 'react';
 
-import { css } from '../stitches.config';
+import { getCssString } from '../stitches.config';
 
 export default class Document extends NextDocument {
   static async getInitialProps(ctx: DocumentContext) {
-    const originalRenderPage = ctx.renderPage;
-
-    let extractedStyles: string[] = [];
-    ctx.renderPage = () => {
-      const { styles, result } = css.getStyles(originalRenderPage);
-      extractedStyles = styles;
-      return result;
-    };
-
     const initialProps = await NextDocument.getInitialProps(ctx);
 
     return {
@@ -28,11 +19,7 @@ export default class Document extends NextDocument {
       styles: (
         <>
           {initialProps.styles}
-
-          {extractedStyles.map((content, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <style key={index} dangerouslySetInnerHTML={{ __html: content }} />
-          ))}
+          <style id="stitches">{getCssString()}</style>
         </>
       ),
     };

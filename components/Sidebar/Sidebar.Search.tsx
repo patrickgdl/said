@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { styled, css } from '../../stitches.config';
+import { styled } from '../../stitches.config';
 import Box from '../Utils/Box';
 import Flex from '../Utils/Flex';
 import Input from '../Utils/Input';
 import SrOnly from '../Utils/SrOnly';
 
 const SidebarSearch = () => (
-  <Box css={sidebarWrapper}>
+  <Box css={{ paddingX: '$3', marginTop: '$5' }}>
     <SrOnly htmlFor="search">Busca</SrOnly>
     <SearchBox>
       <SearchIcon>
@@ -23,8 +23,6 @@ const SidebarSearch = () => (
     </SearchBox>
   </Box>
 );
-
-const sidebarWrapper = css({ paddingX: '$3', marginTop: '$5' });
 
 const SearchBox = styled(Box, {
   position: 'relative',
@@ -55,9 +53,12 @@ const SearchInput = styled(Input, {
   display: 'block',
   width: '100%',
   paddingLeft: '$7',
-  phablet: {
-    fontSize: '$textSm',
-    lineHeight: '1.25rem',
+
+  when: {
+    phablet: {
+      fontSize: '$textSm',
+      lineHeight: '1.25rem',
+    },
   },
 });
 

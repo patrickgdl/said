@@ -1,6 +1,6 @@
 import { styled } from '../../stitches.config';
 
-const SpaceY = styled('div', {
+const SpaceX = styled('div', {
   variants: {
     size: {
       1: {
@@ -31,4 +31,4 @@ const SpaceY = styled('div', {
   },
 });
 
-export default SpaceY;
+export default SpaceX;

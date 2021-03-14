@@ -1,5 +1,4 @@
 import React from 'react';
-import { css } from '../../stitches.config';
 
 import { NavItem } from '../../types/nav-item.interface';
 import Box from '../Utils/Box';
@@ -19,25 +18,25 @@ const NavigationSidebar = () => {
     },
     {
       id: 2,
-      name: 'My tasks',
+      name: 'Minhas atividades',
       isPrimary: true,
       url: '',
       icon: '/task.svg',
     },
     {
       id: 3,
-      name: 'Recent',
+      name: 'Recentes',
       isPrimary: true,
       url: '',
       icon: '/history.svg',
     },
-    { id: 4, name: 'Engineering', isPrimary: false, url: '' },
-    { id: 5, name: 'Human Resources', isPrimary: false, url: '' },
-    { id: 6, name: 'Customer Success', isPrimary: false, url: '' },
+    { id: 4, name: 'Grupo 1', isPrimary: false, url: '' },
+    { id: 5, name: 'Grupo 2', isPrimary: false, url: '' },
+    { id: 6, name: 'Grupo 3', isPrimary: false, url: '' },
   ];
 
   return (
-    <Box as="nav" css={navigation}>
+    <Box as="nav" css={{ paddingX: '$3', marginTop: '$6' }}>
       <SpaceY size={1}>
         {sidebarItems.map((value) =>
           value.isPrimary ? (
@@ -46,12 +45,18 @@ const NavigationSidebar = () => {
         )}
       </SpaceY>
 
-      <Box css={secondNavigation}>
+      <Box css={{ marginTop: '$8' }}>
         <Heading
           as="h3"
           transform="uppercase"
           id="teams-headline"
-          css={headingTitle}
+          css={{
+            paddingX: '$3',
+            fontSize: '$textXs',
+            lineHeight: '1rem',
+            color: '$gray500',
+            letterSpacing: '0.1em',
+          }}
         >
           Times
         </Heading>
@@ -66,16 +71,5 @@ const NavigationSidebar = () => {
     </Box>
   );
 };
-const navigation = css({ paddingX: '$3', marginTop: '$6' });
-
-const secondNavigation = css({ marginTop: '$8' });
-
-const headingTitle = css({
-  paddingX: '$3',
-  fontSize: '$textXs',
-  lineHeight: '1rem',
-  color: '$gray500',
-  letterSpacing: '0.1em',
-});
 
 export default NavigationSidebar;

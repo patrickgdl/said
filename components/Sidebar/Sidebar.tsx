@@ -50,7 +50,7 @@ const SideLogo = styled('div', {
   svg: {
     cursor: 'pointer',
     color: '$gray500',
-    ':hover': {
+    '&:hover': {
       color: '$gray600',
     },
   },

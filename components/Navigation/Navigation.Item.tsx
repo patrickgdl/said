@@ -37,12 +37,12 @@ const Item = styled('a', {
   transitionDuration: '150ms',
   cursor: 'pointer',
 
-  ':hover:not(.active)': {
+  '&:hover:not(.active)': {
     color: '$gray900',
     backgroundColor: '$gray50',
   },
 
-  ':focus': {
+  '&:focus': {
     outline: '2px solid transparent',
     backgroundColor: '$gray50',
   },
@@ -60,11 +60,11 @@ const Item = styled('a', {
     // hacky filter acting as color for img svg
     filter:
       'invert(44%) sepia(8%) saturate(603%) hue-rotate(182deg) brightness(99%) contrast(93%)',
-    ':hover': {
+    '&:hover': {
       filter:
         'invert(34%) sepia(12%) saturate(621%) hue-rotate(176deg) brightness(92%) contrast(93%)',
     },
-    ':focus': {
+    '&:focus': {
       filter:
         'invert(34%) sepia(12%) saturate(621%) hue-rotate(176deg) brightness(92%) contrast(93%)',
     },

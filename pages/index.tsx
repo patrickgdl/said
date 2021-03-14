@@ -3,25 +3,29 @@ import React from 'react';
 
 import reset from '../components/Utils/Reset';
 import Sidebar from '../components/Sidebar/Sidebar';
-import { css, styled } from '../stitches.config';
+import { global } from '../stitches.config';
+import Box from '../components/Utils/Box';
 
 // @ts-ignore
-css.global(reset);
-
-const Box = styled('div', {
-  height: '100vh',
-  overflow: 'hidden',
-  display: 'flex',
-  background: '$white',
-});
+const globalStyles = global(reset);
 
 export default function Home() {
+  globalStyles();
+
   return (
     <>
       <Head>
         <title>Home</title>
       </Head>
-      <Box>
+      <Box
+        css={{
+          height: '100vh',
+          overflow: 'hidden',
+          display: 'flex',
+          background: '$white',
+          boxSizing: 'border-box',
+        }}
+      >
         <Sidebar />
       </Box>
     </>

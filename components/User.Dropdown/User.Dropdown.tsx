@@ -61,12 +61,12 @@ const DropButton = styled('button', {
   transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
   transitionDuration: '150ms',
 
-  ':hover': {
+  '&:hover': {
     backgroundColor: '$gray50',
     color: '$gray500',
   },
 
-  ':focus': {
+  '&:focus': {
     outline: 'none',
     backgroundColor: '$gray200',
   },
@@ -80,7 +80,7 @@ const DropButton = styled('button', {
     color: '$gray400',
     width: '1.25rem',
     height: '1.25rem',
-    ':hover': {
+    '&:hover': {
       color: '$gray500',
     },
   },
